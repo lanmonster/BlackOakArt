@@ -1,0 +1,10 @@
+TODO:
+
+1. Redesign the db — difficult. will probably take 2-3 days.
+	- schema called “have”, table for each task (prep, throw, debat, trim, assemble, polish, stamps, handles
+	- schema called “main” , needs workshopping, table for POs (include progress in PO table??)
+2. Calculate need for each task — difficult. will probably take 1-2 days.
+3. Refactor the end-of-day entry — trivial. will probably take > ~5 hrs. 
+	- needs to look like the todo page, but with blank spots to enter info for each task/po
+
+
