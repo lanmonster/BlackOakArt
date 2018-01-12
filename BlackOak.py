@@ -1,4 +1,4 @@
-# TODO: when i work API, sorting in view all
+# TODO: when i work API
 # 0 -> -
 
 import flask
@@ -98,13 +98,6 @@ def Enter_end0of0day_numbers():
     return flask.render_template('end-of-day.html', form=form)
 
 
-def calc_prep_numbers(foo):  # move to utils
-    results = []
-    for item in foo:
-        results.append(0)  # adjusted amount - what we have
-    return results
-
-
 @app.route('/todo')
 def To0Do():  # Focus your efforts here
     cursor = connection.cursor()
@@ -168,19 +161,8 @@ def To0Do():  # Focus your efforts here
     # }
 
     pos = utils.fetch_all_pos(connection)
-    foo = [i for i, _ in enumerate(pos)]
-    prep = [x.id for x in pos]
 
-    todos = {
-        "prep": prep,  # list of numbers for each po
-        "throw": foo,
-        "debat": foo,
-        "trim": foo,
-        "assemble": foo,
-        "polish": foo,
-        "handles": foo,
-        "stamps": foo
-    }
+    todos = utils.calc_todo(pos)
 
     return flask.render_template('todo.html', pos=pos, todos=todos)
 

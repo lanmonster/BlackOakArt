@@ -55,3 +55,72 @@ def flash_errors(form):
 
 def flash_message(msg, category='info'):
     flask.flash(msg, category)
+
+
+def calc_prep_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(0)  # adjusted amount - what we have
+    return results
+
+
+def calc_throw_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(1)  # adjusted amount - what we have
+    return results
+
+
+def calc_debat_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(2)  # adjusted amount - what we have
+    return results
+
+
+def calc_trim_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(3)  # adjusted amount - what we have
+    return results
+
+
+def calc_assembly_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(4)  # adjusted amount - what we have
+    return results
+
+
+def calc_polish_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(5)  # adjusted amount - what we have
+    return results
+
+
+def calc_handles_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(5)  # adjusted amount - what we have
+    return results
+
+
+def calc_stamps_numbers(pos):
+    results = []
+    for po in pos:
+        results.append(5)  # adjusted amount - what we have
+    return results
+
+
+def calc_todo(pos):
+    return {
+        "prep": calc_prep_numbers(pos),
+        "throw": calc_throw_numbers(pos),
+        "debat": calc_debat_numbers(pos),
+        "trim": calc_trim_numbers(pos),
+        "assemble": calc_assembly_numbers(pos),
+        "polish": calc_polish_numbers(pos),
+        "handles": calc_handles_numbers(pos),
+        "stamps": calc_stamps_numbers(pos)
+    }
