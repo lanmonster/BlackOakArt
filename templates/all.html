@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View all POs</title>
+</head>
+<body>
+    <table border=1 frame=hsidesvsides rules=rowscols style="width: 100%">
+        <tr>
+            <th>ID</th>
+            <th>Company</th>
+            <th>Item</th>
+            <th>Clay Type</th>
+            <th>Glaze Color</th>
+            <th>Amount</th>
+            <th>Buffer</th>
+            <th>Adjusted Amount</th>
+            <th>Description</th>
+            <th>Miscellaneous</th>
+            <th>Percent Complete</th>
+            <th>Delivery Date</th>
+        </tr>
+        {% for po in pos %}
+            <tr>
+            {% for text in po.to_table_values().split('\n') %}
+                <td>{{ text }}</td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

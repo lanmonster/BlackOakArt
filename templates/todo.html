@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do</title>
+</head>
+<body>
+    <table border=1 frame=hsidesvsides rules=rowscols>
+        <tr>
+            <th>Task</th>
+            {% for po in pos %}
+                <th>{{ po.company }} - {{ po.id }} - {{ po.item }}</th>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Prep</td>
+            {% for todo in todos.prep %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Throw</td>
+            {% for todo in todos.throw %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Debat</td>
+            {% for todo in todos.debat %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Trim</td>
+            {% for todo in todos.trim %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Assembly</td>
+            {% for todo in todos.assemble %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Polish</td>
+            {% for todo in todos.polish %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Handles</td>
+            {% for todo in todos.handles %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+        <tr>
+            <td>Stamps</td>
+            {% for todo in todos.stamps %}
+                <td>{{ todo }}</td>
+            {% endfor %}
+        </tr>
+    </table>
+</body>
+</html>

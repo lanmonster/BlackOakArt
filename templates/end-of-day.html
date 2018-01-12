@@ -1,0 +1,22 @@
+{% extends "messages.html" %}
+{% block title %}End of day{% endblock %}
+{% block body %}
+    <h1>Enter end-of-day numbers</h1>
+    {% if error %}
+        <p class="error"><strong>Error: </strong>{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <dl>
+            {% for field in form %}
+                {% if field.label.text.startswith("P") %}
+                    <dt>{{ field.label }}{{ field }}</dt>
+                {% else %}
+                    <dt>Amount {{ field.label }}{{ field }}</dt>
+                {% endif %}
+            {% endfor %}
+        </dl>
+        <div class="input submit">
+            <input type="submit" value="Submit"/>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Black Oak Art</title>
+</head>
+<body>
+<h1>Black Oak Art</h1>
+{% for (url, name) in data.items() %}
+    <a href="{{ url_for(url) }}" target="_blank">{{ name }}</a><br><br>
+{% endfor %}
+{#<a href="{{ url_for('add_po') }}" target='_blank'>Add a new PO</a>#}
+{#<a href="{{ url_for('delete_po') }}" target='_blank'>Delete a PO</a>#}
+{#<a href="{{ url_for('view_all_pos') }}" target='_blank'>View all POs</a>#}
+{#<a href="{{ url_for('end_of_day') }}" target='_blank'>Enter end-of-day numbers</a>#}
+</body>
+</html>

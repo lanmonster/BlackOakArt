@@ -1,0 +1,19 @@
+{% extends "messages.html" %}
+{% block title %}Delete a PO{% endblock %}
+{% block body %}
+    <h1>Delete a PO</h1>
+    {% if error %}
+        <p class="error"><strong>Error: </strong>{{ error }}</p>
+    {% endif %}
+    <form method="post">
+        <dl>
+            {% for field in form %}
+                <dt>{{ field.label }}{{ field }}</dt>
+            {% endfor %}
+        </dl>
+        <div class="input submit">
+            <input type="submit" value="Submit"/>
+        </div>
+    </form>
+{% endblock %}
+
