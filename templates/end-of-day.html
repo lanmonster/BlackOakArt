@@ -1,22 +1,25 @@
 {% extends "messages.html" %}
 {% block title %}End of day{% endblock %}
 {% block body %}
+    <script type="text/javascript" src="{{ url_for('static', filename='end-of-day.js') }}"></script>
     <h1>Enter end-of-day numbers</h1>
-    {% if error %}
-        <p class="error"><strong>Error: </strong>{{ error }}</p>
-    {% endif %}
-    <form method="post">
-        <dl>
-            {% for field in form %}
-                {% if field.label.text.startswith("P") %}
-                    <dt>{{ field.label }}{{ field }}</dt>
-                {% else %}
-                    <dt>Amount {{ field.label }}{{ field }}</dt>
-                {% endif %}
+    <table class="table" border=1 frame=hsidesvsides rules=rowscols>
+        <tr>
+            <th>Task</th>
+            {% for po in pos %}
+                <th class="col{{ loop.index0 }}">{{ po[0] }} - {{ po[1] }} - {{ po[2] }}</th>
             {% endfor %}
-        </dl>
-        <div class="input submit">
-            <input type="submit" value="Submit"/>
-        </div>
-    </form>
+        </tr>
+        {% for field in form %}
+            <tr>
+                <td>{{ field.label }}</td>
+                {% for x in range(0, length) %}
+                    <td class="col{{ loop.index0 }}">{{ field }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+    <div class="input submit">
+        <input onclick="endOfDayButton();" type="submit" value="Submit"/>
+    </div>
 {% endblock %}

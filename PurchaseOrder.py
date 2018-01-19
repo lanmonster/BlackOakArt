@@ -1,18 +1,18 @@
 class PurchaseOrder:
     def __init__(self, data):
-        self.progress = 0
-        self.item = data[0]
-        self.glaze_color = data[1]
-        self.description = data[2]
-        self.delivery_date = data[3]
-        self.company = data[4]
-        self.buffer = data[5]
-        self.amount = data[6]
-        self.id = data[7]
-        self.miscellaneous = data[8]
-        self.adjusted_amount = data[9]
-        self.clay_type = data[10]
+        self.id = data[0]
+        self.company = data[1]
+        self.item = data[2]
+        self.clay_type = data[3]
+        self.glaze_color = data[4]
+        self.amount = data[5]
+        self.buffer = data[6]
+        self.adjusted_amount = data[7]
+        self.description = data[8]
+        self.miscellaneous = data[9]
+        self.delivery_date = data[10]
         self.data = data
+        self.progress = 0
 
     def __iter__(self):
         for x in self.data:
@@ -39,18 +39,19 @@ class PurchaseOrder:
         return result
 
     def to_table_values(self):
-        return (str(self.id) + '\n' +
-                self.company + '\n' +
-                self.item + '\n' +
-                self.clay_type + '\n' +
-                self.glaze_color + '\n' +
-                str(self.amount) + '\n' +
-                str(self.buffer * 100) + '%\n' +
-                str(self.adjusted_amount) + '\n' +
-                self.description + '\n' +
-                self.miscellaneous + '\n' +
-                str(self.progress) + '\n' +
-                self.delivery_date.strftime('%Y/%m/%d'))
+        return ["%s\n" % str(self.id),
+                "%s\n" % str(self.company),
+                "%s\n" % str(self.item),
+                "%s\n" % str(self.clay_type),
+                "%s\n" % str(self.glaze_color),
+                "%s\n" % str(self.amount),
+                "%s\n" % str(int(self.buffer * 100)),
+                "%s\n" % str(self.adjusted_amount),
+                "%s\n" % str(self.description),
+                "%s\n" % str(self.miscellaneous),
+                "%s\n" % str(self.progress),
+                "%s" % str(self.delivery_date.strftime('%Y/%m/%d'))
+                ]
 
     def update_progress(self, progress):
         self.progress = progress

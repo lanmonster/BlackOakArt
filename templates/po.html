@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ po[4] + " - " + po[0]}}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+<body>
+    <p>Item: {{ po[0] }}</p>
+    <p>Company: {{ po[4] }}</p>
+    <p>Glaze Color: {{ po[1] }}</p>
+    <p>Description: {{ po[2] }}</p>
+    <p>Delivery Date: {{ po[3] }}</p>
+    <p>Buffer: {{ po[5] * 100 }}</p>
+    <p>Amount: {{ po[6] }}</p>
+    <p>Miscellaneous Info: {{ po[7] }}</p>
+    <p>Adjusted Amount: {{ po[8] }}</p>
+    <p>Clay Type: {{ po[9] }}</p>
+    <p>PO ID#: {{ po[10] }}</p>
+</body>
+</html>

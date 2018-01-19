@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>View all POs</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
             <th>Clay Type</th>
             <th>Glaze Color</th>
             <th>Amount</th>
-            <th>Buffer</th>
+            <th>Buffer %</th>
             <th>Adjusted Amount</th>
             <th>Description</th>
             <th>Miscellaneous</th>
@@ -22,7 +23,7 @@
         </tr>
         {% for po in pos %}
             <tr>
-            {% for text in po.to_table_values().split('\n') %}
+            {% for text in po.to_table_values() %}
                 <td>{{ text }}</td>
             {% endfor %}
             </tr>

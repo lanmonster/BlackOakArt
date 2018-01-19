@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <title>To-Do</title>
 </head>
 <body>
     <table border=1 frame=hsidesvsides rules=rowscols>
+
         <tr>
             <th>Task</th>
             {% for po in pos %}
-                <th>{{ po.company }} - {{ po.id }} - {{ po.item }}</th>
+                <th><a href="/po/{{ po[1] }}" target="_blank">{{ po[0] }} - {{ po[1] }} - {{ po[2] }}</a></th>
             {% endfor %}
         </tr>
         <tr>
@@ -37,7 +39,7 @@
             {% endfor %}
         </tr>
         <tr>
-            <td>Assembly</td>
+            <td>Assembly (ADN)</td>
             {% for todo in todos.assemble %}
                 <td>{{ todo }}</td>
             {% endfor %}
