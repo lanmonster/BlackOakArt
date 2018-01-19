@@ -1,0 +1,78 @@
+=================================================================================================
+USER STORIES
+=================================================================================================
+
+1. as a user, I can add a Purchase Order (PO).
+2. as a user, I can view a Purchase Order by ID
+3. as a user, I can view all Purchase Orders
+4. as a user, I can update a Purchase Order by ID
+5. as a user, I can delete a Purchase Order by ID
+6. as a user, I can enter “done” numbers for each task by PO ID
+	- “done” refers to amount of items completed
+7. as a user, I can see what needs to be done for a given day by task by PO ID
+
+
+=================================================================================================
+SYSTEM DESIGN
+=================================================================================================
+
+default page is DataTables table of all POs
+	- link at the top to the TODO and the EOD pages.
+	- https://editor.datatables.net/examples/inline-editing/simple
+	- takes care of 1, 2, 3, 4, 5
+
+EOD page is DataTables table of all PO’s that need to be done for that week
+	- forms for each number that was done
+	- https://datatables.net/examples/api/form.html
+	- takes care of 6
+
+TODO page is DataTables table of all PO’s that need to be done for that week
+	- shows the number to do tomorrow for each task.
+	- https://datatables.net/examples/basic_init/zero_configuration.html
+	- takes care of 7
+
+=================================================================================================
+DATABASE DESIGN
+=================================================================================================
+
+(have | leftover | progress).(prep | throw | debat | trim | assemble | polish | stamps | handles)
++------------+
+| all tables |
++============+
+| PO ID      |
++------------+
+| Item       |
++------------+
+| Amount     |
++------------+
+| Clay Type  |
++------------+
+
+main.pos
++---------------+
+|      pos      |
++===============+
+| PO ID         |
++---------------+
+| Company       |
++---------------+
+| Item          |
++---------------+
+| Clay Type     |
++---------------+
+| Glaze Color   |
++---------------+
+| Amount        |
++---------------+
+| Buffer        |
++---------------+
+| Description   |
++---------------+
+| Miscellaneous |
++---------------+
+| Delivery Date |
++---------------+
+| Progress      |
++---------------+
+
+
