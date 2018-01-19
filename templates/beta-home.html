@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>beta</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.css"/>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/b-1.5.1/b-html5-1.5.1/b-print-1.5.1/datatables.min.js"></script>
+</head>
+<body>
+    <script>
+        $(document).ready(function() {
+            $('#beta').DataTable();
+        });
+    </script>
+    <table id="beta" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Company</th>
+                <th>Item</th>
+                <th>Clay Type</th>
+                <th>Glaze Color</th>
+                <th>Amount</th>
+                <th>Buffer</th>
+                <th>Adjusted Amount</th>
+                <th>Description</th>
+                <th>Miscellaneous</th>
+                <th>Percent Complete</th>
+                <th>Delivery Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for po in pos %}
+                <td>{{ po.id }}</td>
+                <td>{{ po.company }}</td>
+                <td>{{ po.item }}</td>
+                <td>{{ po.clay_type }}</td>
+                <td>{{ po.glaze_color }}</td>
+                <td>{{ po.amount }}</td>
+                <td>{{ po.buffer }}</td>
+                <td>{{ po.amount + (po.amount * po.buffer) }}</td>
+                <td>{{ po.description }}</td>
+                <td>{{ po.miscellaneous }}</td>
+                <td>{{ po.percent_complete }}</td>
+                <td>{{ po.delivery_date }}</td>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th>Company</th>
+                <th>Item</th>
+                <th>Clay Type</th>
+                <th>Glaze Color</th>
+                <th>Amount</th>
+                <th>Buffer</th>
+                <th>Adjusted Amount</th>
+                <th>Description</th>
+                <th>Miscellaneous</th>
+                <th>Percent Complete</th>
+                <th>Delivery Date</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

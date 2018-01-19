@@ -15,7 +15,7 @@ app = flask.Flask(__name__)
 @app.route('/')
 def home_page():
     data = {}
-    rules = [x for x in app.url_map._rules if not x.rule.startswith('/static/') and not x.rule == '/' and not x.rule == '/temp']
+    rules = [x for x in app.url_map._rules if not x.rule.startswith('/static/') and not x.rule == '/' and not x.rule == '/temp' and not x.rule == '/po/<int:po_id>']
     for rule in rules:
         data[rule.endpoint] = rule.endpoint.replace('_', ' ').replace('0', '-')
     return flask.render_template('main.html', data=data)
@@ -115,6 +115,23 @@ def To0Do():
     cursor.execute(queries.get_pos_this_week())
     pos = cursor.fetchall()
     return flask.render_template('todo.html', pos=pos, todos=utils.calc_todo(pos, connection))
+
+
+@app.route('/BETA')
+def beta_home():
+    return flask.render_template('beta-home.html', pos = [{
+        "id": 1,
+        "company": "hello world",
+        "item": "mug",
+        "clay_type": "white",
+        "glaze_color": "green",
+        "amount": 1000,
+        "buffer": .1,
+        "description": "test",
+        "miscellaneous": "misc",
+        "percent_complete": 50,
+        "delivery_date": 20180101
+    }])
 
 
 if __name__ == '__main__':
